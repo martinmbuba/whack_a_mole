@@ -10,6 +10,7 @@ function HomePage() {
       <h1>Welcome to Whack-a-Mole</h1>
       <div style={styles.buttons}>
         <Login />
+        <Register />
       </div>
     </div>
   );
@@ -29,4 +30,3 @@ const styles = {
 };
 
 export default HomePage;
-
