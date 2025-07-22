@@ -1,23 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import InstructionBar from './InstructionBar';
-import Login from './Login';
-import Register from './Register';
-import Game from './Game';
 
 function HomePage() {
+  const navigate = useNavigate();
+
   return (
     <div style={styles.page}>
-      {/* <InstructionBar /> */}
       <div style={styles.container}>
-         <InstructionBar />
+        <InstructionBar />
         <h1>Welcome to Whack-a-Mole</h1>
         <div style={styles.buttonGroup}>
-          <Login />
-          <Register />
-          <button style={styles.playButton}>Play Game</button>
-        </div>
-        <div style={styles.gameContainer}>
-          <Game />
+          <button style={styles.button} onClick={() => navigate('/login')}>Login</button>
+          <button style={styles.button} onClick={() => navigate('/register')}>Register</button>
+          <button style={styles.button} onClick={() => navigate('/game')}>Play Game</button>
         </div>
       </div>
     </div>
@@ -26,17 +22,19 @@ function HomePage() {
 
 const styles = {
   page: {
-    marginLeft:'450px',
     display: 'flex',
     justifyContent: 'center',
-    padding: '60px',
+    alignItems: 'center',
+    minHeight: '100vh',
+    backgroundColor: '#f5f5f5',
   },
   container: {
     textAlign: 'center',
-    maxWidth: '600px',
-    width: '100%',
-    marginLeft: '120px',
-    marginRight: 'auto',
+    padding: '40px',
+    backgroundColor: 'white',
+    borderRadius: '10px',
+    boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+    width: '600px',
   },
   buttonGroup: {
     display: 'flex',
@@ -45,13 +43,10 @@ const styles = {
     justifyContent: 'center',
     flexWrap: 'wrap',
   },
-  playButton: {
+  button: {
     padding: '10px 20px',
     fontSize: '16px',
     cursor: 'pointer',
-  },
-  gameContainer: {
-    marginTop: '40px',
   },
 };
 
