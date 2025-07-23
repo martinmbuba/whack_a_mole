@@ -1,19 +1,25 @@
-import React from 'react';
+import "../App.css";
+
+import Hole from '../assets/Hole.jpeg';
+import mole from '../assets/mole.jpeg';
 
 function Game() {
   return (
-    <div style={styles.container}>
-      <h2>Game Page</h2>
-      <p>The game will be here soon...</p>
+    <div className='grid'>
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
+      <img src={Hole} alt="Hole" />
     </div>
   );
 }
 
-const styles = {
-  container: {
-    textAlign: 'center',
-    paddingTop: '100px',
-  },
-};
+
+
 
 export default Game;
