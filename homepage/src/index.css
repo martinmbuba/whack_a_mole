@@ -108,28 +108,15 @@ button:focus {
 }
 
 .player-info {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  background-color: #111;
-  color: #00ff90;
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 255, 100, 0.5);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 1000;
-}
-.player-info::before {
-  content: '🎮';
-  font-size: 14px;
+  color: #00ff90;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .status-bar {
-  margin-top: 60px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   gap: 30px;
