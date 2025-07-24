@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 
 import Hole from '../assets/Hole.jpeg';
 import mole from '../assets/mole.png';
+import whackMusic from '../assets/whack.mp3'; // Import your music file
 
 function Game() {
   const [moles, setMoles] = useState(new Array(9).fill(false));
@@ -12,6 +13,20 @@ function Game() {
   const [score, setScore] = useState(0);
   const [playerName, setPlayerName] = useState("");
   const navigate = useNavigate();
+
+  // Reference to the audio element
+  const audioRef = useRef(null);
+
+  // Pause music when game is over, play when game starts
+  useEffect(() => {
+    if (audioRef.current) {
+      if (gameOver) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+    }
+  }, [gameOver]);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('loggedInUser');
@@ -66,6 +81,8 @@ function Game() {
 
   return (
     <div className="game-container">
+      {/* Background music, only plays in this component */}
+      <audio ref={audioRef} src={whackMusic} loop autoPlay />
       {/* 🎮 Player info centered with black background and neon green text */}
       <div style={{
         fontFamily: "'Press Start 2P', monospace",
@@ -109,7 +126,6 @@ function Game() {
       )}
     </div>
   );
-  
 }
 
 export default Game;
