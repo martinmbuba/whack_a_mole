@@ -1,12 +1,74 @@
-# React + Vite
+# Whack-a-Mole Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Whack-a-Mole game built with React and Vite. It features a timer countdown, score tracking, and interactive gameplay with sound effects. The game includes user login functionality and navigation using React Router.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React + Vite setup for fast development and hot module replacement.
+- Timer countdown starting from 30 seconds.
+- Game over alert with options to play again or return to the homepage.
+- Score tracking for successful mole hits.
+- Interactive mole whacking with hammer animation and sound effects.
+- User login and session management.
+- Responsive grid layout for the game board.
+- Background music that plays during gameplay and pauses on game over.
+- Navigation using React Router.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+   ```
+   git clone https://github.com/martinmbuba/whack_a_mole.git
+   cd whack_a_mole/homepage
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+
+4. Open your browser and navigate to the URL shown in the terminal (e.g., http://localhost:5174).
+
+## Usage
+
+- Log in to start playing the game.
+- Whack the moles as they appear on the grid.
+- The timer counts down from 30 seconds.
+- When the timer reaches zero, a "GAME OVER!" alert appears with options to play again or return home.
+- Your score is displayed and updated in real-time.
+
+## Project Structure
+
+- `src/components/`: Contains React components including `Game.jsx`, `Login.jsx`, and others.
+- `src/assets/`: Contains images and audio assets used in the game.
+- `src/App.jsx`: Main application component.
+- `src/main.jsx`: Entry point for React rendering.
+- `vite.config.js`: Vite configuration file.
+
+## Technologies Used
+
+- React
+- Vite
+- React Router
+- JavaScript (ES6+)
+- CSS for styling
+
+## Contributing
+
+Contributions are welcome! Please create a branch for your feature or bugfix and open a pull request.
+
+## Authors
+
+- Martin Mbuba  
+- Brilliant Kimari  
+- Jeremy Amani  
+- Umuro Woto  
+
+## License
+
+This project is licensed under the MIT License.
