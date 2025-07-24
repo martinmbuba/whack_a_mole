@@ -4,7 +4,8 @@ import "../index.css";
 
 import Hole from '../assets/Hole.jpeg';
 import mole from '../assets/mole.png';
-import whackMusic from '../assets/whack.mp3'; // Import your music file
+import whackMusic from '../assets/whack.mp3';
+import Hammer from './Hammer';
 
 function Game() {
   const [moles, setMoles] = useState(new Array(9).fill(false));
@@ -12,19 +13,16 @@ function Game() {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [playerName, setPlayerName] = useState("");
+  const [hammerPos, setHammerPos] = useState({ x: 0, y: 0 });
+  const [showHammer, setShowHammer] = useState(false);
+
   const navigate = useNavigate();
-
-  // Reference to the audio element
   const audioRef = useRef(null);
+  const gameContainerRef = useRef(null);
 
-  // Pause music when game is over, play when game starts
   useEffect(() => {
     if (audioRef.current) {
-      if (gameOver) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
+      gameOver ? audioRef.current.pause() : audioRef.current.play();
     }
   }, [gameOver]);
 
@@ -63,13 +61,26 @@ function Game() {
     return () => clearInterval(timerId);
   }, [timer]);
 
-  const handleMoleClick = (index) => {
+  const handleMoleClick = (index, e) => {
+    triggerHammer(e);
+
     if (moles[index] && !gameOver) {
       setScore(prev => prev + 20);
       const newMoles = [...moles];
       newMoles[index] = false;
       setMoles(newMoles);
     }
+  };
+
+  const triggerHammer = (e) => {
+    const rect = gameContainerRef.current.getBoundingClientRect();
+    setHammerPos({
+      x: e.clientX - rect.left - 32.5, // center for 65px hammer
+      y: e.clientY - rect.top - 32.5,
+    });
+
+    setShowHammer(true);
+    setTimeout(() => setShowHammer(false), 400); // Show hammer longer
   };
 
   const handlePlayAgain = () => {
@@ -80,10 +91,9 @@ function Game() {
   };
 
   return (
-    <div className="game-container">
-      {/* Background music, only plays in this component */}
+    <div className="game-container" ref={gameContainerRef} style={{ position: 'relative' }}>
       <audio ref={audioRef} src={whackMusic} loop autoPlay />
-      {/* 🎮 Player info centered with black background and neon green text */}
+
       <div style={{
         fontFamily: "'Press Start 2P', monospace",
         fontSize: '12px',
@@ -111,7 +121,7 @@ function Game() {
             src={isMole ? mole : Hole}
             alt={isMole ? "Mole" : "Hole"}
             className="grid-cell"
-            onClick={() => handleMoleClick(index)}
+            onClick={(e) => handleMoleClick(index, e)}
           />
         ))}
       </div>
@@ -124,6 +134,8 @@ function Game() {
           </div>
         </div>
       )}
+
+      <Hammer show={showHammer} x={hammerPos.x} y={hammerPos.y} />
     </div>
   );
 }
