@@ -98,7 +98,6 @@ function Game() {
           />
         ))}
       </div>
-
       {gameOver && (
         <div className="game-over-modal">
           GAME OVER!
