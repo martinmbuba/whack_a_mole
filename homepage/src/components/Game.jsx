@@ -131,6 +131,7 @@ function Game() {
           GAME OVER!
           <div>
             <button onClick={handlePlayAgain}>Play Again</button>
+            <button onClick={() => navigate('/')} style={{ marginLeft: '10px' }}>Home</button>
           </div>
         </div>
       )}
