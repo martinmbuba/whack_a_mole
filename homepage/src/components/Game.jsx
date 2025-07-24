@@ -12,6 +12,10 @@ function Game() {
   const [timer, setTimer] = useState(30);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(() => {
+    const saved = localStorage.getItem('highScore');
+    return saved ? parseInt(saved, 10) : 0;
+  });
   const [playerName, setPlayerName] = useState("");
   const [hammerPos, setHammerPos] = useState({ x: 0, y: 0 });
   const [showHammer, setShowHammer] = useState(false);
@@ -61,6 +65,14 @@ function Game() {
     return () => clearInterval(timerId);
   }, [timer]);
 
+  // Update high score when game is over
+  useEffect(() => {
+    if (gameOver && score > highScore) {
+      setHighScore(score);
+      localStorage.setItem('highScore', score);
+    }
+  }, [gameOver, score, highScore]);
+
   const handleMoleClick = (index, e) => {
     triggerHammer(e);
 
@@ -109,9 +121,41 @@ function Game() {
         🎮 Player: {playerName}
       </div>
 
-      <div className="status-bar">
-        <div className="timer">⏳ Time Left: {timer}s</div>
-        <div className="score">🏆 Score: {score}</div>
+      {/* Integrated styled status bar with high score */}
+      <div className="status-bar" style={{ display: 'flex', gap: '20px', marginBottom: '10px' }}>
+        <div className="timer" style={{
+          fontSize: '20px',
+          fontWeight: 'bold',
+          padding: '8px 12px',
+          backgroundColor: '#ffd700',
+          borderRadius: '8px',
+          color: '#333',
+          userSelect: 'none'
+        }}>
+          ⏳ Time Left: {timer}s
+        </div>
+        <div className="score" style={{
+          fontSize: '20px',
+          fontWeight: 'bold',
+          padding: '8px 12px',
+          backgroundColor: '#ffd700',
+          borderRadius: '8px',
+          color: '#333',
+          userSelect: 'none'
+        }}>
+          🏆 Score: {score}
+        </div>
+        <div className="high-score" style={{
+          fontSize: '20px',
+          fontWeight: 'bold',
+          padding: '8px 12px',
+          backgroundColor: '#ffd700',
+          borderRadius: '8px',
+          color: '#333',
+          userSelect: 'none'
+        }}>
+          🥇 High Score: {highScore}
+        </div>
       </div>
 
       <div className="grid">
