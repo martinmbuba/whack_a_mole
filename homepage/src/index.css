@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -59,6 +61,7 @@ button:focus {
   outline: 2px solid #646cff;
 }
 
+/* ===== HomePage Styles ===== */
 .homepage {
   display: flex;
   flex-direction: column;
@@ -93,4 +96,96 @@ button:focus {
   gap: 16px;
   justify-content: center;
   margin-top: 24px;
+}
+
+/* ===== Game Page Styles ===== */
+.game-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.player-info {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background-color: #111;
+  color: #00ff90;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 255, 100, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1000;
+}
+.player-info::before {
+  content: '🎮';
+  font-size: 14px;
+}
+
+.status-bar {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.timer, .score {
+  background-color: #eee;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.grid img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.grid img:hover {
+  transform: scale(1.05);
+}
+
+.game-over-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 0, 0, 0.9);
+  color: white;
+  padding: 30px 60px;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.7);
+  text-align: center;
+}
+
+.game-over-modal button {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px 24px;
+  background-color: #ffd700;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
 }
