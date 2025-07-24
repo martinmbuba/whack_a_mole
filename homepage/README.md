@@ -1,5 +1,8 @@
 # Whack-a-Mole Game
 
+## LIVE DEMO
+   https://whack-a-mole-sage-omega.vercel.app/
+
 This project is a Whack-a-Mole game built with React and Vite. It features a timer countdown, score tracking, and interactive gameplay with sound effects. The game includes user login functionality and navigation using React Router.
 
 ## Features
