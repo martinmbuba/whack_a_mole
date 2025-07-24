@@ -1,0 +1,99 @@
+body {
+  background-color: #1c1c1e;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.instructions {
+  background-color: #2c2c2e;
+  padding: 1rem 1.5rem;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.card-box {
+  background-color: white;
+  color: black;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button-group button {
+  background-color: black;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-group button:hover {
+  background-color: #333;
+}
+
+.how-to-play {
+  background-color: #2c2c2e;
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.how-to-play h2 {
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  text-align: center;
+  color: #ddd;
+}
+
+.step {
+  background-color: #3a3a3c;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.step-number {
+  color: #FFD700;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.step-title {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: white;
+}
