@@ -98,7 +98,7 @@ function Game() {
           />
         ))}
       </div>
-      
+
       {gameOver && (
         <div className="game-over-modal">
           GAME OVER!
@@ -109,6 +109,7 @@ function Game() {
       )}
     </div>
   );
+  
 }
 
 export default Game;
