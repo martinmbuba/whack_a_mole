@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../index.css"; // Make sure global styles apply
+import "../index.css";
 
 import Hole from '../assets/Hole.jpeg';
 import mole from '../assets/mole.png';
@@ -13,7 +13,6 @@ function Game() {
   const [playerName, setPlayerName] = useState("");
   const navigate = useNavigate();
 
-  // Get logged-in user
   useEffect(() => {
     const storedUser = localStorage.getItem('loggedInUser');
     if (storedUser) {
@@ -25,7 +24,6 @@ function Game() {
     }
   }, [navigate]);
 
-  // Mole movement
   useEffect(() => {
     if (gameOver) return;
     const interval = setInterval(() => {
@@ -38,7 +36,6 @@ function Game() {
     return () => clearInterval(interval);
   }, [gameOver]);
 
-  // Countdown timer
   useEffect(() => {
     if (timer <= 0) {
       setGameOver(true);
@@ -69,8 +66,20 @@ function Game() {
 
   return (
     <div className="game-container">
-      <div className="player-info">
-        👤 Player: {playerName}
+      {/* 🎮 Player info centered with black background and neon green text */}
+      <div style={{
+        fontFamily: "'Press Start 2P', monospace",
+        fontSize: '12px',
+        backgroundColor: '#111',
+        color: '#00ff90',
+        padding: '10px 14px',
+        borderRadius: '8px',
+        boxShadow: '0 0 8px rgba(0, 255, 100, 0.5)',
+        display: 'inline-block',
+        marginBottom: '10px',
+        marginTop: '10px'
+      }}>
+        🎮 Player: {playerName}
       </div>
 
       <div className="status-bar">
