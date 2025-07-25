@@ -1,34 +1,42 @@
+/* Import React hooks and dependencies */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+/* Main Login component */
 function Login() {
+  /* State for character name input */
   const [characterName, setCharacterName] = useState('');
+  /* State for password input */
   const [password, setPassword] = useState('');
+  /* State for logged-in user */
   const [loggedInUser, setLoggedInUser] = useState(null);
+  /* React Router navigation hook */
   const navigate = useNavigate();
 
+  /* On mount, check if user is already logged in */
   useEffect(() => {
-    // Check if user is already logged in
     const storedUser = localStorage.getItem('loggedInUser');
     if (storedUser) {
       setLoggedInUser(JSON.parse(storedUser));
     }
   }, []);
 
+  /* Handle login form submission */
   const handleLogin = (e) => {
     e.preventDefault();
-    // Validate inputs
+    /* Validate inputs */
     if (!characterName || !password) {
       alert('Please enter both character name and password.');
       return;
     }
-    // Check stored user credentials
+    /* Check stored user credentials */
     const storedUser = localStorage.getItem('user');
     if (!storedUser) {
       alert('No registered user found. Please register first.');
       return;
     }
     const user = JSON.parse(storedUser);
+    /* Validate credentials */
     if (user.name === characterName && user.password === password) {
       localStorage.setItem('loggedInUser', JSON.stringify(user));
       setLoggedInUser(user);
@@ -39,10 +47,12 @@ function Login() {
     }
   };
 
+  /* Handle back button click */
   const handleBack = () => {
     navigate('/');
   };
 
+  /* Render login form or welcome message if already logged in */
   return (
     <div style={styles.container}>
       <h2>Login Page</h2>
@@ -80,6 +90,7 @@ function Login() {
   );
 }
 
+/* Inline styles for the component */
 const styles = {
   container: {
     textAlign: 'center',
@@ -107,4 +118,6 @@ const styles = {
     cursor: 'pointer',
   },
 };
+
+/* Export the Login component */
 export default Login;
