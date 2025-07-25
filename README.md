@@ -14,25 +14,9 @@ This project is a Whack-a-Mole game built with React and Vite. It features a tim
 - Background music that plays during gameplay and pauses on game over.
 - Navigation using React Router.
 
-## Installation
+##LIVE LINK
+https://whack-a-mole-sage-omega.vercel.app/
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/martinmbuba/whack_a_mole.git
-   cd whack_a_mole/homepage
-   ```
-
-2. Install dependencies:
-   ```
-   npm install
-   ```
-
-3. Start the development server:
-   ```
-   npm run dev
-   ```
-
-4. Open your browser and navigate to the URL shown in the terminal (e.g., http://localhost:5174).
 
 ## Usage
 
