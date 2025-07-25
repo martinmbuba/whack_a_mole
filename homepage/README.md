@@ -1,5 +1,8 @@
 # Whack-a-Mole Game
 
+## LIVE DEMO
+   https://whack-a-mole-sage-omega.vercel.app/
+
 This project is a Whack-a-Mole game built with React and Vite. It features a timer countdown, score tracking, and interactive gameplay with sound effects. The game includes user login functionality and navigation using React Router.
 
 ## Features
@@ -72,3 +75,15 @@ Contributions are welcome! Please create a branch for your feature or bugfix and
 ## License
 
 This project is licensed under the MIT License.
+
+## License from the Authors
+
+The authors grant permission to use, copy, modify, and distribute this software for any purpose, provided that the above copyright notice and this permission notice appear in all copies.
+
+The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+The authors shall not be liable for any claim, damages, or other liability arising from the use of the software.
+
+---
+
+*This README was last updated on: 2024-06-01*
